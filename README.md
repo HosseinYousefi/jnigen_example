@@ -1,7 +1,8 @@
 # `package:jnigen` Example
 
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`.
+A sample command-line application that interops with Java code
+using [`package:jnigen`](https://pub.dev/packages/jnigen),
+with an entrypoint in `bin/` and library code in `lib/`.
 
 ## Regenerate Bindings
 
