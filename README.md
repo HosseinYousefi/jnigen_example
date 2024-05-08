@@ -18,7 +18,7 @@ The dynamic libraries must be built, and the java source must be compiled before
 running the example. 
 
 ```terminal
-dart run jni:setup -p jni -s src/example
+dart run jni:setup
 javac java/dev/dart/Example.java
 ```
 
