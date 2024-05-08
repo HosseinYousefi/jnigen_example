@@ -1,7 +1,4 @@
 output:
-  c:
-    library_name: example
-    path: src/example/
   dart:
     path: lib/example.dart
     structure: single_file

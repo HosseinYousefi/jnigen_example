@@ -4,6 +4,7 @@
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: camel_case_types
 // ignore_for_file: constant_identifier_names
+// ignore_for_file: doc_directive_unknown
 // ignore_for_file: file_names
 // ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: no_leading_underscores_for_local_identifiers
@@ -15,49 +16,71 @@
 // ignore_for_file: unused_import
 // ignore_for_file: unused_local_variable
 // ignore_for_file: unused_shown_name
+// ignore_for_file: use_super_parameters
 
 import "dart:isolate" show ReceivePort;
 import "dart:ffi" as ffi;
 import "package:jni/internal_helpers_for_jnigen.dart";
 import "package:jni/jni.dart" as jni;
 
-// Auto-generated initialization code.
-
-final ffi.Pointer<T> Function<T extends ffi.NativeType>(String sym) jniLookup =
-    ProtectedJniExtensions.initGeneratedLibrary("example");
-
 /// from: dev.dart.Example
 class Example extends jni.JObject {
   @override
   late final jni.JObjType<Example> $type = type;
 
-  Example.fromRef(
-    jni.JObjectPtr ref,
-  ) : super.fromRef(ref);
+  Example.fromReference(
+    jni.JReference reference,
+  ) : super.fromReference(reference);
+
+  static final _class = jni.JClass.forName(r"dev/dart/Example");
 
   /// The type which includes information such as the signature of this class.
   static const type = $ExampleType();
-  static final _new0 =
-      jniLookup<ffi.NativeFunction<jni.JniResult Function()>>("Example__new0")
-          .asFunction<jni.JniResult Function()>();
+  static final _id_new0 = _class.constructorId(
+    r"()V",
+  );
+
+  static final _new0 = ProtectedJniExtensions.lookup<
+          ffi.NativeFunction<
+              jni.JniResult Function(
+                ffi.Pointer<ffi.Void>,
+                jni.JMethodIDPtr,
+              )>>("globalEnv_NewObject")
+      .asFunction<
+          jni.JniResult Function(
+            ffi.Pointer<ffi.Void>,
+            jni.JMethodIDPtr,
+          )>();
 
   /// from: public void <init>()
   /// The returned object must be released after use, by calling the [release] method.
   factory Example() {
-    return Example.fromRef(_new0().object);
+    return Example.fromReference(
+        _new0(_class.reference.pointer, _id_new0 as jni.JMethodIDPtr)
+            .reference);
   }
 
-  static final _sum = jniLookup<
-              ffi.NativeFunction<jni.JniResult Function(ffi.Int32, ffi.Int32)>>(
-          "Example__sum")
-      .asFunction<jni.JniResult Function(int, int)>();
+  static final _id_sum = _class.staticMethodId(
+    r"sum",
+    r"(II)I",
+  );
+
+  static final _sum = ProtectedJniExtensions.lookup<
+              ffi.NativeFunction<
+                  jni.JniResult Function(ffi.Pointer<ffi.Void>,
+                      jni.JMethodIDPtr, ffi.VarArgs<(ffi.Int64, ffi.Int64)>)>>(
+          "globalEnv_CallStaticIntMethod")
+      .asFunction<
+          jni.JniResult Function(
+              ffi.Pointer<ffi.Void>, jni.JMethodIDPtr, int, int)>();
 
   /// from: static public int sum(int a, int b)
   static int sum(
     int a,
     int b,
   ) {
-    return _sum(a, b).integer;
+    return _sum(_class.reference.pointer, _id_sum as jni.JMethodIDPtr, a, b)
+        .integer;
   }
 }
 
@@ -68,7 +91,8 @@ final class $ExampleType extends jni.JObjType<Example> {
   String get signature => r"Ldev/dart/Example;";
 
   @override
-  Example fromRef(jni.JObjectPtr ref) => Example.fromRef(ref);
+  Example fromReference(jni.JReference reference) =>
+      Example.fromReference(reference);
 
   @override
   jni.JObjType get superType => const jni.JObjectType();
