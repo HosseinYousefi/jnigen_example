@@ -141,18 +141,18 @@ packages:
     dependency: "direct main"
     description:
       name: jni
-      sha256: "4f20a803314e2e07d3a284b4841f1109bbc17784f111f02f1a37bd5ffd3176af"
+      sha256: f377c585ea9c08d48b427dc2e03780af2889d1bb094440da853c6883c1acba4b
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.0"
+    version: "0.10.1"
   jnigen:
     dependency: "direct dev"
     description:
       name: jnigen
-      sha256: "8442cb256721a8b7a7dc5bfd8385a9133bd952862d74df53d7f1e26783bfa416"
+      sha256: "9e005054a36594ad8f115d283b0955e11ca29dde9e9dadda7c6996025dc3fe75"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.0"
+    version: "0.10.0"
   js:
     dependency: transitive
     description:
